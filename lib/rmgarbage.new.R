@@ -14,7 +14,7 @@ ifCleanToken <- function(cur_token){
   if_clean <- TRUE
   
   ## in order to accelerate the computation, conduct ealy stopping
-  rule_list <- c("str_count(cur_token, pattern = '[A-Za-z0-9]') <= 0.5*nchar(cur_token)", 
+  rule_list <- c("str_count(cur_token, pattern = '[A-Za-z0-9]') < 0.5*nchar(cur_token)", 
                  #If the number of punctuation characters in a string is greater than the number of alphanumeric characters, it is garbage
                  
                  "length(unique(strsplit(gsub('[A-Za-z0-9]','',substr(cur_token, 2, nchar(cur_token)-1)),'')[[1]]))>1", 
@@ -23,8 +23,7 @@ ifCleanToken <- function(cur_token){
                  "nchar(cur_token)>20",
                  #A string composed of more than 20 symbols is garbage
                 
-                 "str_detect(cur_token,'([a-z\\d]|[A-Z\\d])\\1{3,}')",
-                 #"([0-9a-zA-Z])\\1{3,}",
+                 "str_detect(cur_token,'([a-z\\d]|[A-Z\\d])\\1{2,}')",
                  #If there are three or more identical characters in a row in a string, it is garbage
                  
                  "str_count(cur_token, pattern = '[A-Z]') > str_count(cur_token, pattern = '[a-z]') & str_count(cur_token, pattern = '[A-Z]') < nchar(cur_token)",
@@ -37,8 +36,7 @@ ifCleanToken <- function(cur_token){
                  "str_detect(cur_token,'[aeiou]{4,}') | str_detect(cur_token,'[^aeiou]{5,}')",
                  #If there are four or more consecutive vowels in the string or five or more consecutive consonants in the string, it is garbage
 
-                 "str_detect(substr(cur_token,1,1),'[a-z]') & str_detect(substr(cur_token,nchar(cur_token),nchar(cur_token)),'[a-z]'){str_detect(substr(cur_token,2,nchar(cur_token)),'[A-Z]')}"
-                 #"is.lower(substr(cur_token, 1, 1)) & is.lower(substr(cur_token, nchar(cur_token), nchar(cur_token))) & is.upper(substr(cur_token, 2, nchar(cur_token)-1))",
+                 "str_detect(substr(cur_token,1,1),'[a-z]') & str_detect(substr(cur_token,nchar(cur_token),nchar(cur_token)),'[a-z]') & str_detect(substr(cur_token,2,nchar(cur_token)),'[A-Z]')"
                  #If the first and last characters in a string are both lowercase and any other character is uppercase, it is garbage.
                  )  
   
