@@ -25,7 +25,7 @@ would lead to a correctly spelled word.Last we compute a score for each candidat
 + Chen, Yang: Finish the coding part of D1, combine D1 and C4 together, edit the readme file
 + Gao, Han: Presenter, prepare the powerpoint, finish the coding part of D1.
 + Qiu, Yimeng: Finish the evaluation of final model.
-+ Zhai, Chun:
++ Zhai, Chun: Finish the coding part of C4, combine works to Github.
 
 Following [suggestions](http://nicercode.github.io/blog/2013-04-05-projects/) by [RICH FITZJOHN](http://nicercode.github.io/about/#Team) (@richfitz). This folder is orgarnized as follows.
 
