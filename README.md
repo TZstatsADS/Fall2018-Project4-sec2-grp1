@@ -6,17 +6,25 @@
 
 Term: Fall 2018
 
-+ Team #
++ Team # 1
 + Team members
-	+ team member 1
-	+ team member 2
-	+ team member 3
-	+ team member 4
-	+ team member 5
+	+ team member 1 Beers, Izzy ib2392@columbia.edu
+	+ team member 2 Chen, Yang yc3335@columbia.edu
+	+ team member 3 Gao, Han hg2474@columbia.edu
+	+ team member 4 Qiu, Yimeng yq2231@columbia.edu
+	+ team member 5 Zhai, Chun cz2466@columbia.edu
 
-+ Project summary: In this project, we created an OCR post-processing procedure to enhance Tesseract OCR output. 
++ Project summary:  In this project, we created an OCR post-processing procedure to enhance Tesseract OCR output. We understood and discussed the assigned paper D1 and C4, for the detection algorithm and correction algorithm separately. For D1, the detection part, we use eight rules which is referenced from the rgarbage. For C4, we used deletion, insertion, and substitution techniques to look for any possible corrections for these words. Deletion would see if deleting an unnecessary character from the word would lead to
+a correctly spelled word, insertion would see if inserting an additional character into the word would lead to a
+correctly spelled word, and substitution would see if replacing a character in the word with a different character
+would lead to a correctly spelled word.Last we compute a score for each candidate. The final step is performance measurement. 
 	
 **Contribution statement**: ([default](doc/a_note_on_contributions.md)) All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement. 
++ Beers, Izzy:
++ Chen, Yang: Finish the coding part of D1, combine D1 and C4 together, edit the readme file
++ Gao, Han: Presenter, prepare the powerpoint, finish the coding part of D1.
++ Qiu, Yimeng:
++ Zhai, Chun:
 
 Following [suggestions](http://nicercode.github.io/blog/2013-04-05-projects/) by [RICH FITZJOHN](http://nicercode.github.io/about/#Team) (@richfitz). This folder is orgarnized as follows.
 
