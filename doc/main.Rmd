@@ -182,6 +182,62 @@ OCR_performance_table["word_wise_precision","Tesseract_with_postprocessing"] <- 
 kable(OCR_performance_table, caption="Summary of OCR performance")
 ```
 
+
+
+
+```{r}
+levelinter <- function(data){
+  C_inter <- 0
+  for (i in 1:dim(data)[1]){
+  if (data[i,4]=="No Match Found"){
+    C_inter <- CE+0
+  }
+  else{
+    gt <- unlist(strsplit(data[i,2],split=''))
+    cr <- unlist(strsplit(data[i,4],split=''))
+    C_inter <- C_error + length(intersect(gt,cr))
+  }
+  }
+  return(C_inter)
+}
+
+#data$corrections <- as.character(data$corrections)
+#correctlist <- removePunctuation(data$final_corrected[data$final_corrected!='No Match Found'])
+groundtruth_vect <- ground_list  
+postprocess_vect <- post_list  
+df <- read.csv('word_pos.csv')
+load('data.RData')
+C_groudtruth <- nchar(paste(groundtruth_vect, collapse=''))  
+C_tesseract <- nchar(paste(df$wordlist_tesseract, collapse=''))
+C_postprocessing <- nchar(paste(df$wordlist_tesseract[df$combined_if==FLASE], collapse=''))
+inter_before <- vecsets::vintersect(tolower(groundtruth_vect), tolower(df$wordlist_tesseract))
+inter_after <- vecsets::vintersect(tolower(groundtruth_vect), tolower(postprocess_vect))
+n1 <- nchar(paste(inter_before, collapse=''))
+n2 <- nchar(paste(inter_after, collapse=''))
+#n_detect <- length(new_all_mistakes_with_matches_before$final_corrected[new_all_mistakes_with_matches_before$final_correcte!='No Match Found'])
+#n_detectpost <- length(new_all_mistakes_with_matches$final_corrected[new_all_mistakes_with_matches$final_correcte!='No Match Found'])
+
+n_detect <- levelinter(datapost)
+n_detectpost <- levelinter(dataprocess)
+
+# without processing
+
+precision <- (n1+ n_detect)/C_tesseract
+recall <- (n1 + n_detect)/C_groudtruth
+
+# with processing
+#List_groundtruth <- strsplit(groundtruth[paper_num], " ")
+#List_tesseract <- strsplit(tesseract[paper_num], " ")
+
+#C_groudtruth <- length(List_groundtruth)
+#C_ocr <- length(List_tesseract)
+#C_inter <- length(get_mistake_list)
+  
+precision <- (n2 + n_detectpost)/C_postprocessing
+recall <- (n2 + n_detectpost)/C_groudtruth
+```
+```
+
 Besides the above required measurement, you are encouraged the explore more evaluation measurements. Here are some related references:
 
 1. Karpinski, R., Lohani, D., & Belaïd, A. *Metrics for Complete Evaluation of OCR Performance*. [pdf](https://csce.ucmss.com/cr/books/2018/LFS/CSREA2018/IPC3481.pdf)
