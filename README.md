@@ -16,7 +16,7 @@ Term: Fall 2018
 
 ![image](figs/OCR.png)
 + Project summary:  In this project, we created an OCR post-processing procedure to enhance Tesseract OCR output. We understood and discussed the assigned paper D1 and C4, for the detection algorithm and correction algorithm separately. For D1, the detection part, we use eight rules which is referenced from the rgarbage. The related code is in lib **ifcleantoken.r**
-+For C4, we used deletion, insertion, and substitution techniques to look for any possible corrections for these words. Deletion would see if deleting an unnecessary character from the word would lead to
++ For C4, we used deletion, insertion, and substitution techniques to look for any possible corrections for these words. Deletion would see if deleting an unnecessary character from the word would lead to
 a correctly spelled word, insertion would see if inserting an additional character into the word would lead to a
 correctly spelled word, and substitution would see if replacing a character in the word with a different character
 would lead to a correctly spelled word.Last we compute a score for each candidate. The final step is performance measurement. 
