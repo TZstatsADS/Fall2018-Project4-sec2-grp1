@@ -21,7 +21,7 @@ correctly spelled word, and substitution would see if replacing a character in t
 would lead to a correctly spelled word.Last we compute a score for each candidate. The final step is performance measurement. 
 	
 **Contribution statement**: ([default](doc/a_note_on_contributions.md)) All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement. 
-+ Beers, Izzy:
++ Beers, Izzy: Wrote get_bigrams, deletion, insertion, substitution, letter_function, calculate_frequencies, compare_more_than_one_character_off, compare_one_character_off, get_mistake_list, and print_corrections functions, and did the write up for the ADS_project_4_CorrectionPart.pdf markdown file.
 + Chen, Yang: Finish the coding part of D1, combine D1 and C4 together, edit the readme file
 + Gao, Han: Presenter, prepare the powerpoint, finish the coding part of D1.
 + Qiu, Yimeng: Finish the evaluation of final model.
